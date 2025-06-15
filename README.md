@@ -88,6 +88,6 @@ Next Steps?
 
 🔹 Tools Used: Python (Pandas, Seaborn), Jupyter Notebooks
 🔹 Data Source: South African Insurance Records
-🔹 Author: Abdulaziz | 📧 [Your Contact]
+🔹 Author: Abdulaziz
 
 # End-to-End-Insurance-Risk-Analytics-Predictive-Modeling
