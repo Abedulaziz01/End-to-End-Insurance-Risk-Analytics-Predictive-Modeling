@@ -1,3 +1,5 @@
+# End-to-End-Insurance-Risk-Analytics-Predictive-Modeling
+
 🔍 From Raw Data to Actionable Insights: An Insurance Analytics Journey
 By Abdulaziz
 📌 Introduction
@@ -18,10 +20,10 @@ Our data revealed striking geographic differences in policy choices:
 💰 2. Premium Pricing Trends
 Average premiums vary significantly by province:
 
-Province	Avg. Premium (R)
-KwaZulu-Natal	77.80 💸 (Highest)
-Eastern Cape	70.55
-Northern Cape	49.62 💰 (Lowest)
+Province Avg. Premium (R)
+KwaZulu-Natal 77.80 💸 (Highest)
+Eastern Cape 70.55
+Northern Cape 49.62 💰 (Lowest)
 🔍 Why?
 
 KZN’s high premiums may stem from accident rates, fraud risks, or demand.
@@ -89,5 +91,3 @@ Next Steps?
 🔹 Tools Used: Python (Pandas, Seaborn), Jupyter Notebooks
 🔹 Data Source: South African Insurance Records
 🔹 Author: Abdulaziz
-
-# End-to-End-Insurance-Risk-Analytics-Predictive-Modeling
