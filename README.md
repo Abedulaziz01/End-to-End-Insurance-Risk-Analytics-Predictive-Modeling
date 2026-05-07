@@ -1,6 +1,6 @@
 # End-to-End Insurance Risk Analytics Predictive Modeling
 
-This repository is now a runnable insurance analytics project with:
+An end-to-end insurance analytics project with:
 
 - a fast training pipeline
 - a fallback demo dataset when the DVC CSV is missing
@@ -8,7 +8,7 @@ This repository is now a runnable insurance analytics project with:
 
 ## Project Summary
 
-The original repository focused on exploratory data analysis over South African insurance records. This version keeps that business theme and adds working application code so you can run the project quickly on a fresh machine.
+This project focuses on exploratory analysis and premium prediction over South African insurance-style records, with a lightweight application layer for quick local runs.
 
 The predictive target is `TotalPremium`, which is used as a pricing and risk proxy. The app supports:
 
@@ -36,9 +36,9 @@ The predictive target is `TotalPremium`, which is used as a pricing and risk pro
 
 ## Data Behavior
 
-This repo includes `Data/cleaned1.csv.dvc`, but the real `Data/cleaned1.csv` file is not present in the repository.
+The project includes `Data/cleaned1.csv.dvc`, but the real `Data/cleaned1.csv` file may not be present locally.
 
-Because of that, the code runs in two modes:
+Because of that, the application supports two modes:
 
 1. `real` mode  
 Uses `Data/cleaned1.csv` if you place the cleaned dataset there.
@@ -102,9 +102,8 @@ python train.py
 streamlit run app.py
 ```
 
-The app will automatically switch from demo mode to real-data mode.
+The application automatically switches from demo mode to real-data mode.
 
 ## Author
 
-Original notebook analysis by Abdulaziz.  
-Runnable app and pipeline structure added in this project version.
+Notebook analysis by Abdulaziz.
