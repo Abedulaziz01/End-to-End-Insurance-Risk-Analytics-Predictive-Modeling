@@ -1,93 +1,110 @@
-# End-to-End-Insurance-Risk-Analytics-Predictive-Modeling
+# End-to-End Insurance Risk Analytics Predictive Modeling
 
-🔍 From Raw Data to Actionable Insights: An Insurance Analytics Journey
-By Abdulaziz
-📌 Introduction
-After meticulously cleaning and analyzing a comprehensive insurance dataset, we uncovered fascinating regional trends, pricing patterns, and vehicle preferences across South Africa. This report highlights key discoveries and strategic recommendations—all made possible through rigorous data cleaning and exploratory analysis (EDA).
+This repository is now a runnable insurance analytics project with:
 
-🔎 Key Insights from EDA
-📍 1. Regional Insurance Preferences
-Our data revealed striking geographic differences in policy choices:
+- a fast training pipeline
+- a fallback demo dataset when the DVC CSV is missing
+- a Streamlit app for analytics and premium prediction
 
-🏙️ Gauteng leads with 41,268 "Own Damage" policies—reflecting its urban, high-value vehicle market.
+## Project Summary
 
-🌊 Coastal Provinces (KZN, Western Cape, Mpumalanga) prefer Third-Party coverage, likely due to different risk factors.
+The original repository focused on exploratory data analysis over South African insurance records. This version keeps that business theme and adds working application code so you can run the project quickly on a fresh machine.
 
-🛣️ Eastern Regions (Eastern Cape, Limpopo, Free State) favor "Cleaning & Debris Removal" add-ons, possibly linked to road conditions.
+The predictive target is `TotalPremium`, which is used as a pricing and risk proxy. The app supports:
 
-💡 Business Takeaway: Tailor insurance bundles to regional needs—e.g., debris removal packages in Eastern Cape, comprehensive plans in Gauteng.
+- province-level premium analysis
+- cover-type distribution analysis
+- top vehicle-make analysis
+- premium prediction for a single insurance profile
+- simple risk segmentation based on predicted premium
 
-💰 2. Premium Pricing Trends
-Average premiums vary significantly by province:
+## Project Structure
 
-Province Avg. Premium (R)
-KwaZulu-Natal 77.80 💸 (Highest)
-Eastern Cape 70.55
-Northern Cape 49.62 💰 (Lowest)
-🔍 Why?
+```text
+.
+├── app.py
+├── train.py
+├── PROJECT_DESCRIPTION.md
+├── Data/
+├── artifacts/
+└── src/
+    └── insurance_risk/
+        ├── __init__.py
+        ├── data.py
+        └── modeling.py
+```
 
-KZN’s high premiums may stem from accident rates, fraud risks, or demand.
+## Data Behavior
 
-Northern Cape’s lower costs could indicate untapped market potential.
+This repo includes `Data/cleaned1.csv.dvc`, but the real `Data/cleaned1.csv` file is not present in the repository.
 
-🚀 Recommendation: Investigate KZN’s pricing drivers and assess if Northern Cape is underpriced.
+Because of that, the code runs in two modes:
 
-🚗 3. Vehicle Make Popularity
-Toyota dominates, but secondary brands vary:
+1. `real` mode  
+Uses `Data/cleaned1.csv` if you place the cleaned dataset there.
 
-🏆 #1 Everywhere: Toyota (e.g., 306K policies in Gauteng alone!).
+2. `demo` mode  
+Generates a realistic synthetic insurance dataset instantly so the project always runs.
 
-🥈 #2 in 6/9 Provinces: Mercedes-Benz (luxury preference).
+## Quick Start
 
-🛠️ Budget Choice: CMC ranks in top 3 in 5 provinces.
+### 1. Install dependencies
 
-🚘 Unexpected Finds:
+```bash
+pip install -r requirements.txt
+```
 
-Golden Journey (#3 in Gauteng—12K policies).
+### 2. Train the model
 
-Iveco (#3 in Western Cape—3.8K policies).
+```bash
+python train.py
+```
 
-💼 Strategic Opportunity: Partner with Toyota for bundled insurance deals and explore niche markets (e.g., Iveco in Western Cape).
+### 3. Run the Streamlit app
 
-🧹 How Data Cleaning Enabled Reliable Insights
-Before analysis, we:
-✔ Removed useless columns (e.g., 100% empty fields).
-✔ Fixed missing values (smart imputation for fairness).
-✔ Cleaned duplicates (14 exact copies removed).
-✔ Capped outliers (for accurate premium averages).
+```bash
+streamlit run app.py
+```
 
-📊 Without this prep, insights would be misleading!
+## Expected Outputs
 
-🎯 Strategic Recommendations
-📌 Regional Product Tweaks
+Training saves:
 
-Launch debris removal packages in Eastern Cape/Limpopo.
+- `artifacts/premium_model.pkl`
+- `artifacts/metrics.json`
 
-Offer luxury vehicle bundles in Gauteng (Mercedes-Benz focus).
+## Streamlit Features
 
-💵 Pricing Adjustments
+- Overview page with dataset preview and summary metrics
+- Analytics page with premium, cover, make, and claims views
+- Prediction page with an insurance-profile form and instant premium estimate
 
-Investigate why KZN premiums are high—is it risk or opportunity?
+## Modeling Notes
 
-Test discounted Northern Cape promotions to boost uptake.
+- Model: `RandomForestRegressor`
+- Target: `TotalPremium`
+- Metrics: MAE, RMSE, and R2
 
-🤝 Manufacturer Partnerships
+The implementation favors fast startup and practical usability over heavy experimentation.
 
-Toyota co-branded policies (huge market share).
+## If You Have The Real Dataset
 
-Specialized Iveco/Golden Journey plans (niche segments).
+Place the cleaned file here:
 
-🔮 Final Thoughts
-This project proves that clean data = trustworthy insights. By combining technical rigor with business context, we transformed messy records into actionable strategies.
+```text
+Data/cleaned1.csv
+```
 
-Next Steps?
+Then rerun:
 
-🚀 Test pricing experiments in key regions.
+```bash
+python train.py
+streamlit run app.py
+```
 
-🤖 Build a predictive model for premium optimization.
+The app will automatically switch from demo mode to real-data mode.
 
-"Data isn’t just numbers—it’s the story of your business." – Abdulaziz
+## Author
 
-🔹 Tools Used: Python (Pandas, Seaborn), Jupyter Notebooks
-🔹 Data Source: South African Insurance Records
-🔹 Author: Abdulaziz
+Original notebook analysis by Abdulaziz.  
+Runnable app and pipeline structure added in this project version.

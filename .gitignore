@@ -1,3 +1,7 @@
 # Ignore actual data files, but not DVC pointer files
 data/*.csv
 !data/*.csv.dvc
+Data/*.csv
+!Data/*.csv.dvc
+artifacts/*.pkl
+artifacts/*.json
